@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: samplejava-svc
+  name: {{ .Values.service.name }}
   labels:
 spec:
   type: {{ .Values.service.type }}
@@ -10,4 +10,4 @@ spec:
       targetPort: {{ .Values.service.targetPort }}
       protocol: {{ .Values.service.protocol }}
   selector:
-    app: samplejava
+    app: {{ .Values.matchlabel }}

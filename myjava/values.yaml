@@ -1,10 +1,13 @@
 replicaCount: 2
 
+DepName: samplejava
+matchlabel: samplejava
 image:
+  name: my-java-app
   repository: 217747396203.dkr.ecr.us-east-1.amazonaws.com/mydockerrepo
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: 7.0.0
+  tag: 
 
 imagePullSecrets: []
 nameOverride: ""
@@ -14,6 +17,7 @@ container:
   port: 8080
 
 service:
+  name: samplejava-svc
   protocol: TCP
   type: LoadBalancer
   port: 8080

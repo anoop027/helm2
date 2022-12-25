@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: samplejava
+  name: {{ .Values.DepName }}
   labels:
-    app: samplejava
+    app: {{ .Values.matchlabel }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: samplejava
+      app: {{ .Values.matchlabel }}
   template:
     metadata:
       labels:
-        app: samplejava
+        app: {{ .Values.matchlabel }}
     spec:
       containers:
-      - name: my-java-app
+      - name: {{ .Values.image.name }}
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
