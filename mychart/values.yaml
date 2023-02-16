@@ -1,0 +1,22 @@
+name: my-client-dep1
+  
+labels:
+  app: client
+
+replicaCount: 1
+
+Podname: clientpod1
+
+image:
+  repository: 217747396203.dkr.ecr.us-east-1.amazonaws.com/mydockerrepo
+  tag: "client"
+  pullPolicy: IfNotPresent
+
+containerPort: 3000
+
+Service:
+  name: my-client-service
+  type: NodePort
+  port: 3000
+  targetPort: 3000
+  nodePort: 32000
